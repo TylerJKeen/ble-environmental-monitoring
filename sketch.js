@@ -4,13 +4,26 @@ This is the drawing part; based on this example: https://editor.p5js.org/aferris
 
 */
 
-let graphValuesBattVolt = [];
-let graphValuesTemperature = [];
-let graphValuesHumidity = [];
-let graphValuesPressure = [];
-let graphValuesVOC = [];
-let graphValuesGas = [];
 let numPts = 100;
+
+let timems = [];
+let OXppm = [];
+let NOppm = [];
+let COppm = [];
+let NO2ppm = [];
+let SO2ppm = [];
+let H2Sppm = [];
+let CO2ppm = [];
+let CH4ppm = [];
+let batterymV = [];
+let U15C = [];
+let U16C = [];
+let U17C = [];
+let CO2C = [];
+let BMEC = [];
+let BMEPa = [];
+let BMEH = [];
+
 
 function setup() { 
   canvas = createCanvas(windowWidth,windowHeight - 220);
@@ -25,23 +38,42 @@ function handleLineBreak(value){
   graphValuesPressure.unshift(valueint[3]); 
   graphValuesVOC.unshift(valueint[4]); 
   graphValuesGas.unshift(valueint[5]); 
+  
+  timems.unshift(valueint[0]);
+  OXppm.unshift(valueint[1]);
+  NOppm.unshift(valueint[2]);
+  COppm.unshift(valueint[3]);
+  NO2ppm.unshift(valueint[4]);
+  SO2ppm.unshift(valueint[5]);
+  H2Sppm.unshift(valueint[6]);
+  CO2ppm.unshift(valueint[7]);
+  CH4ppm.unshift(valueint[8]);
+  batterymV.unshift(valueint[9]);
+  U15C.unshift(valueint[10]);
+  U16C.unshift(valueint[11]);
+  U17C.unshift(valueint[12]);
+  CO2C.unshift(valueint[13]);
+  BMEC.unshift(valueint[14]);
+  BMEPa.unshift(valueint[15]);
+  BMEH.unshift(valueint[16]);
 }
 
 function draw() {
   
   background("#f5f6fa");
-  drawLines("#C0392B", graphValuesBattVolt, 0, 5);
-  drawLines("#9B59B6", graphValuesTemperature, 10, 45);
-  drawLines("#2980B9", graphValuesHumidity, 0, 100);
-  drawLines("#1ABC9C", graphValuesPressure, 1010, 1020);
-  drawLines("#27AE60", graphValuesVOC, 0, 1000);
-  drawLines("#F1C40F", graphValuesGas, 0, 5);
-  drawLabel("#C0392B", graphValuesBattVolt, 15, "Battery Voltage(V): ", 0, 5);
-  drawLabel("#9B59B6", graphValuesTemperature, 30, "Temerature(C): ", 10, 45);
-  drawLabel("#2980B9", graphValuesHumidity, 45, "Humidity(%): ", 0, 100);
-  drawLabel("#1ABC9C", graphValuesPressure, 60, "Pressure(hPa): ", 1010, 1020);
-  drawLabel("#27AE60", graphValuesVOC, 75, "VOC(ppm): ", 0, 1000);
-  drawLabel("#F1C40F", graphValuesGas, 90, "Gas(V): ", 0, 5);
+  drawLines("#C0392B", OXppm, 0, 300000);
+  drawLines("#9B59B6", COppm, 0, 10);
+  drawLines("#2980B9", CO2ppm, 0, 60000);
+  drawLines("#1ABC9C", BMEC, 0, 35);
+  drawLines("#27AE60", BMEPa, 101000, 102000);
+  drawLines("#F1C40F", BMEH, 0, 100);
+  
+  drawLabel("#C0392B", OXppm, 15, "Oxygen (ppm): ", 0, 300000);
+  drawLabel("#9B59B6", COppm, 30, "Carbon Monixide (ppm): ", 0, 10);
+  drawLabel("#2980B9", CO2ppm, 45, "Carbon Dioxide (ppm): ", 0, 60000);
+  drawLabel("#1ABC9C", BMEC, 60, "Temperature (C): ", 0, 35);
+  drawLabel("#27AE60", BMEPa, 75, "Pressure (Pa): ", 101000, 102000);
+  drawLabel("#F1C40F", BMEH, 90, "Humidity (%): ", 0, 100);
 
 }
 
