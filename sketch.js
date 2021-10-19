@@ -63,7 +63,7 @@ function draw() {
   
   drawLabel("#C0392B", OXppm, 15, "Oxygen (ppm): ", 0, 300000);
   drawLabel("#9B59B6", COppm, 30, "Carbon Monixide (ppm): ", 0, 10);
-  drawLabel("#2980B9", CO2ppm, 45, "Carbon Dioxide (ppm): ", 0, 60000);
+  drawLabel("#2980B9", CO2ppm, 45, "Carbon Dioxide (%): ", 0, 5);
   drawLabel("#1ABC9C", BMEC, 60, "Temperature (C): ", 0, 35);
   drawLabel("#27AE60", BMEPa, 75, "Pressure (Pa): ", 101000, 102000);
   drawLabel("#F1C40F", BMEH, 90, "Humidity (%): ", 0, 100);
