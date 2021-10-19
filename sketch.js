@@ -32,13 +32,6 @@ function setup() {
 //Whenever we get an linebreak, we take the current value, and add it to the array, while shifitng all of it's values one postition.
 function handleLineBreak(value){
   valueint = float(value.split(", "));
-  graphValuesBattVolt.unshift(valueint[0]); 
-  graphValuesTemperature.unshift(valueint[1]); 
-  graphValuesHumidity.unshift(valueint[2]); 
-  graphValuesPressure.unshift(valueint[3]); 
-  graphValuesVOC.unshift(valueint[4]); 
-  graphValuesGas.unshift(valueint[5]); 
-  
   timems.unshift(valueint[0]);
   OXppm.unshift(valueint[1]);
   NOppm.unshift(valueint[2]);
