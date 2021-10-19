@@ -32,6 +32,8 @@ function setup() {
 //Whenever we get an linebreak, we take the current value, and add it to the array, while shifitng all of it's values one postition.
 function handleLineBreak(value){
   valueint = float(value.split(", "));
+  /*
+  
   timems.unshift(valueint[0]);
   OXppm.unshift(valueint[1]);
   NOppm.unshift(valueint[2]);
@@ -49,24 +51,28 @@ function handleLineBreak(value){
   BMEC.unshift(valueint[14]);
   BMEPa.unshift(valueint[15]);
   BMEH.unshift(valueint[16]);
+  */
+  OXppm.unshift(valueint[0]);
+  CO2ppm.unshift(valueint[1]);
+  BMEC.unshift(valueint[2]);
+  BMEPa.unshift(valueint[3]);
+  BMEH.unshift(valueint[4]);
 }
 
 function draw() {
   
   background("#f5f6fa");
   drawLines("#C0392B", OXppm, 0, 300000);
-  drawLines("#9B59B6", COppm, 0, 10);
-  drawLines("#2980B9", CO2ppm, 0, 60000);
+  drawLines("#2980B9", CO2ppm, 0, 5);
   drawLines("#1ABC9C", BMEC, 0, 35);
   drawLines("#27AE60", BMEPa, 101000, 102000);
   drawLines("#F1C40F", BMEH, 0, 100);
   
   drawLabel("#C0392B", OXppm, 15, "Oxygen (ppm): ", 0, 300000);
-  drawLabel("#9B59B6", COppm, 30, "Carbon Monixide (ppm): ", 0, 10);
-  drawLabel("#2980B9", CO2ppm, 45, "Carbon Dioxide (%): ", 0, 5);
-  drawLabel("#1ABC9C", BMEC, 60, "Temperature (C): ", 0, 35);
-  drawLabel("#27AE60", BMEPa, 75, "Pressure (Pa): ", 101000, 102000);
-  drawLabel("#F1C40F", BMEH, 90, "Humidity (%): ", 0, 100);
+  drawLabel("#2980B9", CO2ppm, 30, "Carbon Dioxide (%): ", 0, 5);
+  drawLabel("#1ABC9C", BMEC, 45, "Temperature (C): ", 0, 35);
+  drawLabel("#27AE60", BMEPa, 60, "Pressure (Pa): ", 101000, 102000);
+  drawLabel("#F1C40F", BMEH, 75, "Humidity (%): ", 0, 100);
 
 }
 
@@ -106,21 +112,27 @@ function drawLabel(colour, values, pos, labelText, min, max) {
   if (!(values.length === 0)) {
     minimumval = Math.min(...values)
     maximumval = Math.max(...values)
+    /*
     if (maximumval > max) {
       max = maximumval;
     }
     if (minimumval < min) {
       min = minimumval;
     }
+    */
   }
   stroke("#f5f6fa");
   fill(colour)
   textAlign(RIGHT);
   if (!(values.length === 0)) {
-    text(values[0], width-10, map(values[0], min, max,height,0))
+    text(values[0], width-20, map(values[0], min, max,height,0))
   }
+  textAlign(LEFT);
+  text(labelText,10,pos)
+  /*
   textAlign(LEFT);
   text("Max " + labelText + maximumval,10,pos)
   textAlign(LEFT);
   text("Min " + labelText + minimumval,10,pos+110)
+  */
 }
