@@ -65,14 +65,14 @@ function draw() {
   drawLines("#C0392B", OXppm, 0, 300000);
   drawLines("#2980B9", CO2ppm, 0, 5);
   drawLines("#1ABC9C", BMEC, 0, 35);
-  drawLines("#27AE60", BMEPa, 101000, 102000);
+  drawLines("#27AE60", BMEPa, 101000, 101200);
   drawLines("#F1C40F", BMEH, 0, 100);
   
-  drawLabel("#C0392B", OXppm, 15, "Oxygen (ppm): ", 0, 300000);
-  drawLabel("#2980B9", CO2ppm, 30, "Carbon Dioxide (%): ", 0, 5);
-  drawLabel("#1ABC9C", BMEC, 45, "Temperature (C): ", 0, 35);
-  drawLabel("#27AE60", BMEPa, 60, "Pressure (Pa): ", 101000, 102000);
-  drawLabel("#F1C40F", BMEH, 75, "Humidity (%): ", 0, 100);
+  drawLabel("#C0392B", OXppm, 15, "Oxygen (ppm)", 0, 300000);
+  drawLabel("#2980B9", CO2ppm, 30, "Carbon Dioxide (%)", 0, 5);
+  drawLabel("#1ABC9C", BMEC, 45, "Temperature (C)", 0, 35);
+  drawLabel("#27AE60", BMEPa, 60, "Pressure (Pa)", 101000, 101200);
+  drawLabel("#F1C40F", BMEH, 75, "Humidity (%)", 0, 100);
 
 }
 
